@@ -1,11 +1,19 @@
 package db;
+import db.DBHelper;
+import models.Book;
+import models.Borrower;
 
 public class Seeds {
 
-    Book book1 = new Book("Coding for Dummies", "Mr Java", True);
-    DBHelper.save(book1);
+    public static void seedData() {
+        DBHelper.deleteAll(Book.class);
+        DBHelper.deleteAll(Borrower.class);
 
-    Borrower borrower = new Borrower("Mr Smith");
-    DBHelper.save(borrower1)
+        Book book1 = new Book("Coding for Dummies", "Mr Java", true);
+        DBHelper.save(book1);
+
+        Borrower borrower1 = new Borrower("Mr Smith");
+        DBHelper.save(borrower1);
+    }
 
 }
