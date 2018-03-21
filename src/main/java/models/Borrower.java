@@ -1,7 +1,10 @@
 package models;
 
+import javax.persistence.*;
 import java.util.Set;
 
+@Entity
+@Table(name="borrowers")
 public class Borrower {
 
     private int id;
@@ -12,6 +15,9 @@ public class Borrower {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     public int getId() {
         return id;
     }
@@ -20,6 +26,7 @@ public class Borrower {
         this.id = id;
     }
 
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -28,6 +35,7 @@ public class Borrower {
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "currentBorrower", cascade = CascadeType.REMOVE)
     public Set<Book> getBooks() {
         return books;
     }
