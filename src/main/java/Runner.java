@@ -6,8 +6,9 @@ import models.Borrower;
 public class Runner {
 
     public static void main(String[] args) {
-        Book book = new Book("The Falcons of Montabard", "Elizabeth Chadwick", false);
-        DBHelper.save(book);
+
+        Book book1 = new Book("The Falcons of Montabard", "Elizabeth Chadwick", false);
+        DBHelper.save(book1);
 
         Book book2 = new Book("The Greek Myths", "Robert Graves", false);
         DBHelper.save(book2);
